@@ -1,19 +1,27 @@
-// Write your Color component here
-const Color = (props) => {
-  return <div className={props.color}></div>;
+import React, { useState } from 'react';
+
+// Color component with onClick property
+const Color = ({ color, setSelectedColor }) => {
+  return <div className={color} onClick={() => setSelectedColor(color)}></div>;
 };
 
 const App = () => {
+  // Using useState hook to manage selectedColor state
+  const [selectedColor, setSelectedColor] = useState("");
+
   return (
     <div id="container">
+      {/* Displaying currently selectedColor */}
       <div id="navbar">
         <div>Currently selected: </div>
-        <div className="red">red</div>
+        <div className={selectedColor}>{selectedColor}</div>
       </div>
       <div id="colors-list">
-        <Color color="blue" />
-        <Color color="violet" />
-        <Color color="black" /></div>
+        {/* Passing setSelectedColor function to each Color component */}
+        <Color color="yellow" setSelectedColor={setSelectedColor}/>
+        <Color color="green" setSelectedColor={setSelectedColor}/>
+        <Color color="black" setSelectedColor={setSelectedColor}/>
+      </div>
     </div>
   );
 };
