@@ -1,11 +1,6 @@
 // Write your Color component here
 const Color = (props) => {
-  return <div className="red"></div>;
-    <div id="colors-list">
-      <Color />
-      <Color />
-      <Color />
-    </div>
+  return <div className={props.color}></div>;
 };
 
 const App = () => {
@@ -15,7 +10,10 @@ const App = () => {
         <div>Currently selected: </div>
         <div className="red">red</div>
       </div>
-      <div id="colors-list">{/* colors go here */}</div>
+      <div id="colors-list">
+        <Color color="blue" />
+        <Color color="violet" />
+        <Color color="black" /></div>
     </div>
   );
 };
